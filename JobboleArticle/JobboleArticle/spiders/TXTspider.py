@@ -8,8 +8,8 @@ import datetime
 
 class TXTspider(scrapy.Spider):
     name = 'TXTspider'
-    allowed_domains = ['h528.com']
-    start_urls = ['http://www.h528.com/post/category/%E6%A0%A1%E5%9C%92%E5%B8%AB%E7%94%9F/page1']
+    allowed_domains = ['528h = =低调']
+    start_urls = ['...']
 
     def parse(self, response):
         post_nodes = response.css(".post a::attr(href)").extract()
@@ -17,7 +17,7 @@ class TXTspider(scrapy.Spider):
             yield Request(parse.urljoin(response.url, post_node), callback=self.parse_detail)
 
         for i in range(2,40):
-            next_page_url = "http://www.h528.com/post/category/%E6%A0%A1%E5%9C%92%E5%B8%AB%E7%94%9F/page"+str(i)
+            next_page_url = "528h低调"+str(i)
             if next_page_url:
                 yield Request(parse.urljoin(response.url, next_page_url), callback=self.parse)
 
