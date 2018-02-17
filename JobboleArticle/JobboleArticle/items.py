@@ -20,3 +20,7 @@ class JobbolearticleItem(scrapy.Item):
     date = scrapy.Field()
     tags = scrapy.Field()
     pass
+
+class TXTitem(scrapy.Item):
+    content = scrapy.Field()
+    title = scrapy.Field()

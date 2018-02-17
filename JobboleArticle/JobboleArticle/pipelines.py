@@ -14,8 +14,9 @@ contents_store = os.path.join(project_dir, 'contents')
 
 class JobbolearticlePipeline(object):
     def process_item(self, item, spider):
-        file = codecs.open(contents_store+"/"+item.get("title"), 'w+', encoding="utf-8")
-        lines = json.dumps(dict(item), ensure_ascii=False) + "\n"
+        file = codecs.open(contents_store+"/"+item.get("title")+".txt", 'w+', encoding="utf-8")
+        lines = json.dumps(dict(item), ensure_ascii=False)
         file.write(lines)
+        file.close()
         return item
 
